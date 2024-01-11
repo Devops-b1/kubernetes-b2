@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  namespace: manjulika
+spec:
+  containers:
+  - name: httpd-container
+    image: http
+    ports:
+    - containerPort: 80
