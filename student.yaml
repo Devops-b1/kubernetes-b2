@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: studentpod
+  namespace: manjulika
+  labels:
+    yum: why
+spec:
+  containers:
+  - name: maven-container
+    image: 8983795200/students:1
+    ports:
+    - containerPort: 8080
