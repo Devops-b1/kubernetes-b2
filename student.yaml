@@ -11,3 +11,5 @@ spec:
     image: 8983795200/students:1
     ports:
     - containerPort: 8080
+  imagePullSecrets:
+  - name: dockerhubsecret 
