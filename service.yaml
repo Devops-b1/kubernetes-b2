@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: amul-svc
+  namespace: manjulika
+spec:
+  type: ClusterIP
+  selector:
+    yum: why
+  ports:
+  - name: http
+    port: 80   #<service port>
+    targetPort: 8080    #<container port>
+    protocol: TCP
+
+
