@@ -11,3 +11,4 @@ spec:
     image: 8983795200/maven-web-application:1
     ports:
     - containerPort: 8080
+    
