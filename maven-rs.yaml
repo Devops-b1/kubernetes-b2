@@ -1,22 +1,23 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata:
-  name: java-rc
+  name: java-rs
   namespace: manjulika
 spec:
-  replicas: 5
+  replicas: 3
   selector:
-    app: royal-c
+    matchLabels:
+      app: royal-stag
   template: #Pod ka template.
     metadata:
-      name: java-pod
+      name: maven-pod
       namespace: manjulika
       labels:
-        app: royal-c
+        app: royal-stag
     spec:
       containers:
       - name: java-container
-        image: 8983795200/java-web-app:1
+        image: 8983795200/maven-web-application:1
         ports:
         - containerPort: 8080
         
@@ -25,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rc-service
+  name: rs-service
   namespace: manjulika
 spec:
   type: NodePort
