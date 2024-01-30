@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: manjulika-quota
+  namespace: manjulika
+spec:
+  hard:
+    requests.cpu: "0.25"
+    requests.memory: 256Mi
+    limits.cpu: "0.5"
+    limits.memory: 1Gi
+    pods: 2
