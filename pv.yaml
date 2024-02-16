@@ -10,7 +10,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-	  path: "/kube"
+    path: "/kube"
 
 ---
 # pvc yaml
@@ -24,8 +24,8 @@ spec:
   accessModes:
   - ReadWriteOnce
   resources:
-	  requests:
-	    storage: 500Mi
+    requests:
+      storage: 500Mi
 
 
 
