@@ -1,4 +1,4 @@
-
+# pv yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -11,6 +11,22 @@ spec:
   - ReadWriteOnce
   hostPath:
 	  path: "/kube"
+
+---
+# pvc yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-hostpath
+spec:
+  storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  resources:
+	  requests:
+	    storage: 500Mi
+
 
 
 
