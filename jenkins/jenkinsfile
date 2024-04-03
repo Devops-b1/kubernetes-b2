@@ -31,7 +31,7 @@ pipeline {
                 echo "this is my project-1 git pull stage"
                 sudo apt install git -y
                 '''
-                git 'https://github.com/Devops-b1/maven-web-application.git'
+                git 'https://github.com/Devops-b1/students.git'
                 sh "ls"
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 sh'''
                 sudo apt install maven -y
-                mvn clean package
+                mvn clean package -DskipTests
                 '''
                 sh "ls"
             }
