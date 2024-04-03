@@ -35,5 +35,14 @@ pipeline {
                 sh "ls"
             }
         }
+        stage('code builde') {
+            steps {
+                sh'''
+                sudo apt install maven -y
+                mvn clean package
+                '''
+                sh "ls"
+            }
+        }
     }
 }
