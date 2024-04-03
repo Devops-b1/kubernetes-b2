@@ -1,0 +1,39 @@
+/*pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('challo') {
+            steps {
+                echo 'Hello hello'
+            }
+        }
+        stage('janedo') {
+            steps {
+                echo 'Hello hi hello '
+            }
+        }
+    }
+}
+
+*/
+
+pipeline {
+    agent any
+    stages {
+        stage('git pull') {
+            steps {
+                sh'''
+                echo "this is my project-1 git pull stage"
+                sudo apt install git -y
+                '''
+                git 'https://github.com/Devops-b1/students.git'
+                sh "ls"
+            }
+        }
+    }
+}

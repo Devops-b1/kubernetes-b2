@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  USERNAME : "monika"
+  USERNAME-1: "yash"

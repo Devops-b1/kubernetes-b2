@@ -66,7 +66,10 @@ spec:
         - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: monika
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key : USERNAME
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: monika@567
         volumeMounts:
@@ -74,8 +77,8 @@ spec:
           mountPath: /data/db
       volumes:
       - name: monikavolume
-        hostPath:
-          path: /tmp/dbstore
+        persistentVolumeClaim:
+          claimName: pv-hostpath
 
 ---
 apiVersion: v1
