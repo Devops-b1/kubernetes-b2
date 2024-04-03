@@ -39,7 +39,7 @@ pipeline {
             steps {
                 sh'''
                 sudo apt install maven -y
-                mvn clean package
+                sudo mvn clean package
                 '''
                 sh "ls"
             }
