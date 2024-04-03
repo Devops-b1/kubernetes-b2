@@ -39,6 +39,8 @@ pipeline {
             steps {
                 sh'''
                 sudo apt install maven -y
+                sudo apt update -y
+                sudo apt upgrade -y
                 mvn clean package -DskipTests
                 '''
                 sh "ls"
