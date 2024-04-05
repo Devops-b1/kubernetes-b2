@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('git pull') {
+            steps {
+                sh'''
+                echo "this is my project-1 git pull stage"
+                sudo apt install git -y
+                '''
+                git 'https://github.com/Devops-b1/maven-web-application.git'
+                sh "ls"
+            }
+        }
+    }
+}
