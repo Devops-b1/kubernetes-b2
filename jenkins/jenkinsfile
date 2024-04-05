@@ -46,7 +46,7 @@ pipeline {
                 sh "ls"
             }
         }
-        stage('code builde') {
+        stage('deploy') {
             steps {
                 deploy adapters: [tomcat8(credentialsId: 'jen-ad-cred', path: '', url: 'http://176.34.9.179:8080')], contextPath: '/', war: '**/*.war'
             }
