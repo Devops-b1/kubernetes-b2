@@ -22,5 +22,10 @@ pipeline {
                 sh "ls"
             }
         }
+        stage('code Deploy') {
+            steps {
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-1-pan-cred', path: '', url: 'http://52.195.149.57:8080')], contextPath: '/', war: '**/*.war'
+            }
+        }
     }
 }
