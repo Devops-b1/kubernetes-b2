@@ -1,0 +1,27 @@
+pipeline {
+    agent none
+    stages {
+        stage('checkout') {
+        agent {
+            label 'build'
+        }
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Devops-b1/maven-web-application.git']])
+            }
+        }
+        stage('image-push') {
+        agent {
+            label 'build'
+        }
+            steps {
+                sh '''
+                curl -O https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+                sudo tar -xvf apache-maven-3.9.4-bin.tar.gz -C /opt
+                export PATH=$PATH:/opt/apache-maven-3.9.4/bin/
+                mvn clean package -DskipTests
+                curl -fsSL get.docker.com | /bin/bash
+                '''
+            }
+        }
+    }
+}
