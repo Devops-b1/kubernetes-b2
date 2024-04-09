@@ -6,7 +6,7 @@ pipeline {
             label 'build'
         }
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Devops-b1/maven-web-application.git']])
+                git 'https://github.com/Devops-b1/maven-web-application.git'
             }
         }
         stage('image-push') {
@@ -19,7 +19,6 @@ pipeline {
                 sudo tar -xvf apache-maven-3.9.4-bin.tar.gz -C /opt
                 export PATH=$PATH:/opt/apache-maven-3.9.4/bin/
                 mvn clean package -DskipTests
-                curl -fsSL get.docker.com | /bin/bash
                 '''
             }
         }
